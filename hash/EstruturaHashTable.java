@@ -9,8 +9,8 @@ public class EstruturaHashTable implements EstruturaDeDados{
 
     @Override
     public boolean insert(int chave) {
-       int i = chave % 1000;
-       if(tabela[i] != null){
+       int i = (chave % 1000);
+       if(tabela[i] == null){
         tabela[i] = chave;
         return true;
        }
@@ -19,10 +19,10 @@ public class EstruturaHashTable implements EstruturaDeDados{
 
     @Override
     public boolean delete(int chave) {
-        int i = chave % 1000;
-        if(tabela[i] == chave && tabela[i] != null){
-            tabela[i] = null;
-            return true;
+        int i = (chave % 1000);
+        if(tabela[i] != null && tabela[i] == chave){
+           tabela[i] = null;
+           return true;
         }
         return false;
         
@@ -30,8 +30,8 @@ public class EstruturaHashTable implements EstruturaDeDados{
 
     @Override
     public boolean search(int chave) {
-        int i = chave % 1000;
-        if(tabela[i] == chave){
+        int i = (chave % 1000);
+        if(tabela[i] != null && tabela[i] == chave){
             return true;
         }
         return false;
